@@ -27,24 +27,28 @@
 </div>
 
 <style>
-  /* Same styles as in your original component */
   .feed-wrapper {
     position: relative;
     width: 100%;
     max-width: 800px;
     margin: 2rem 0;
+    padding: 1rem;
+    box-sizing: border-box;
   }
 
   .feed-container {
     position: relative;
     width: 100%;
+    max-width: 100%;
     max-height: 400px;
     overflow-y: auto;
+    overflow-x: hidden;
     border: 6px solid rgba(255, 255, 255, 0.6);
     border-radius: 12px;
     padding: 2rem 1rem;
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
   }
 
   .feed-header {
@@ -108,11 +112,24 @@
   @media (max-width: 600px) {
     .feed-container {
       max-height: 300px;
-      padding: 1rem;
+      padding: 1rem 0.5rem;
+    }
+
+    .feed-wrapper {
+      padding: 0.5rem;
     }
 
     .feed-header {
       font-size: 0.9rem;
+      gap: 0.3rem;
+    }
+
+    li {
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
     }
   }
 </style>
