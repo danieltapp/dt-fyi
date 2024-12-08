@@ -1,32 +1,24 @@
 import { AtpAgent } from "@atproto/api";
-import fs from "fs/promises";
 
 export interface Post {
   text: string;
   createdAt: string;
 }
 
-const CACHE_FILE = "./cache.json";
-const CACHE_DURATION = 5 * 60 * 1000;
+let cache: { posts: Post[]; timestamp: number } | null = null;
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
-async function getCache(): Promise<Post[] | null> {
-  try {
-    const data = await fs.readFile(CACHE_FILE, "utf8");
-    const { posts, timestamp } = JSON.parse(data);
-
-    if (Date.now() - timestamp < CACHE_DURATION) {
-      console.log("Returning cached posts from file");
-      return posts;
-    }
-  } catch (error) {
-    console.log("Cache is not available or expired:", error.message);
+async function getCache() {
+  if (cache && Date.now() - cache.timestamp < CACHE_DURATION) {
+    console.log("Returning in-memory cached posts");
+    return cache.posts;
   }
   return null;
 }
 
 async function setCache(posts: Post[]) {
-  const data = JSON.stringify({ posts, timestamp: Date.now() });
-  await fs.writeFile(CACHE_FILE, data, "utf8");
+  console.log("Setting in-memory cache");
+  cache = { posts, timestamp: Date.now() };
 }
 
 async function fetchBlueskyPosts(): Promise<Post[]> {
@@ -43,6 +35,7 @@ async function fetchBlueskyPosts(): Promise<Post[]> {
   }
 
   await agent.login({ identifier: username, password });
+
   const response = await agent.getAuthorFeed({
     actor: did || "",
     filter: "posts_no_replies",
@@ -58,11 +51,13 @@ async function fetchBlueskyPosts(): Promise<Post[]> {
 }
 
 export const load = async () => {
+  // Try to get cached posts
   const cachedPosts = await getCache();
   if (cachedPosts) {
     return { postsPromise: Promise.resolve(cachedPosts) };
   }
 
+  // Fetch new posts and cache them
   const postsPromise = (async () => {
     const posts = await fetchBlueskyPosts();
     await setCache(posts);
