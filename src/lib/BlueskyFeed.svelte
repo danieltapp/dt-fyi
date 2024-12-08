@@ -1,40 +1,24 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { blueskyPosts, fetchBlueskyPosts } from "../stores/blueskyStore";
-  import BlueskyPost from "./BlueskyPost.svelte";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
   import { faBluesky } from "@fortawesome/free-brands-svg-icons";
-
-  let loading = true;
-  let error: string | null = null;
-
-  onMount(async () => {
-    try {
-      await fetchBlueskyPosts();
-    } catch (err) {
-      error = "Failed to load posts.";
-    } finally {
-      loading = false;
-    }
-  });
+  export let posts: { text: string; createdAt: string }[];
 </script>
 
 <div class="feed-wrapper">
   <div class="feed-header">
-    <FontAwesomeIcon class="logo" icon={faBluesky} />
+    <FontAwesomeIcon icon={faBluesky} />
     <span class="header-text">posting through it</span>
-    <FontAwesomeIcon class="logo" icon={faBluesky} />
+    <FontAwesomeIcon icon={faBluesky} />
   </div>
   <div class="feed-container">
-    {#if loading}
-      <p>Loading your posts...</p>
-    {:else if error}
-      <p>{error}</p>
+    {#if posts.length === 0}
+      <p>No posts to display.</p>
     {:else}
       <ul>
-        {#each $blueskyPosts as post}
+        {#each posts as post}
           <li>
-            <BlueskyPost {post} />
+            <p>{post.text}</p>
+            <small>{new Date(post.createdAt).toLocaleString()}</small>
           </li>
         {/each}
       </ul>
@@ -43,6 +27,7 @@
 </div>
 
 <style>
+  /* Same styles as in your original component */
   .feed-wrapper {
     position: relative;
     width: 100%;
