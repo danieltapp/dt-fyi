@@ -1,7 +1,7 @@
 <section>
   <img src="/assets/profile_picture.jpeg" alt="Daniel Tapp" class="profile-image" /> 
   <p>
-    My name is Daniel Tapp, and I'm a software engineering leader based out of ATL. By day, I manage teams and wrangle code; by night, I'm a family man who occasionally finds time to build cool things in the JavaScript ecosystem. 🛠️ 
+    My name is Daniel Tapp, and I'm a Senior Software Engineer based out of ATL. By day, I focus on crafting elegant solutions and building impactful software; by night, I'm a family man who occasionally finds time to build cool things in the JavaScript ecosystem. 🛠️ 
     Whether I’m launching features into production 🚀, exploring the final frontier of side projects 🌌, or dodging the black hole of merge conflicts 🌀, I love turning ideas into reality and having a little fun along the way. 👨‍🚀
     I'm also an <a href="https://bsky.app/profile/danieltapp.bsky.social" target="_blank" rel="noopener noreferrer">amateur poster</a> and a <a href="https://letterboxd.com/danieltapp" target="_blank" rel="noopener noreferrer">film enjoyer</a>.
   </p>
