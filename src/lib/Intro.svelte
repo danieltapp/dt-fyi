@@ -27,25 +27,25 @@
   }
 
   .profile-image {
-    width: 50%; /* Base size as a percentage of the container */
-    max-width: 150px; /* Set a maximum size for larger screens */
-    height: auto; /* Maintain aspect ratio */
-    margin: 1rem 0; /* Add consistent spacing */
-    border-radius: 15%; /* Maintain semi-rounded shape */
-    transition: width 0.3s ease; /* Smooth resizing for responsiveness */
+    width: 50%; 
+    max-width: 150px; 
+    height: auto;
+    margin: 1rem; 
+    border-radius: 15%; 
+    transition: width 0.3s ease;
   }
 
   @media (min-width: 768px) {
     .profile-image {
-      width: 30%; /* Smaller percentage for larger screens */
-      max-width: 200px; /* Slightly larger maximum size for mid-sized screens */
+      width: 30%;
+      max-width: 200px; 
     }
   }
 
   @media (min-width: 1200px) {
     .profile-image {
-      width: 20%; /* Further reduce percentage for very large screens */
-      max-width: 250px; /* Set a cap for ultra-wide screens */
+      width: 20%; 
+      max-width: 250px; 
     }
   }
 </style>

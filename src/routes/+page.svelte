@@ -2,6 +2,7 @@
   export let data: { postsPromise: Promise<{ text: string; createdAt: string }[]> };
   import Header from '$lib/Header.svelte';
   import Intro from '$lib/Intro.svelte';
+  import Tracktor from '$lib/Tracktor.svelte';
   import SocialLinks from '$lib/SocialLinks.svelte';
   import Canvas from '$lib/Canvas.svelte';
   import BlueskyFeed from '$lib/BlueskyFeed.svelte';
@@ -13,6 +14,7 @@
   <Header />
   <SocialLinks />
   <Intro />
+  <Tracktor />
   {#await data.postsPromise}
     <p>Loading Bluesky posts...</p>
   {:then posts}
