@@ -47,7 +47,7 @@
   {:else}
     I’ve been working on this fun side project called <a href="https://github.com/danieltapp/tracktor">Tracktor 🚜</a>, which
     aggregates data from services I use to track my activities throughout the
-    year. So far in 2025, I’ve read {activities.books} books 📚, watched
+    year. So far in 2025, I’ve read {activities.books} {activities.books === 1 ? 'book' : 'books'} 📚, watched
     {activities.movies} movies 🎬, gone on {activities.runs} runs 🏃🏻‍♂️, and made
     {activities.commits} commits 💻 across {activities.repositories} repositories 🗂️.
   {/if}
