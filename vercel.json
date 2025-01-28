@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/tracktor/:path*",
+      "destination": "https://tracktor.vercel.app/:path*"
+    }
+  ]
+}
