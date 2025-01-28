@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/tracktor/:path*",
-      "destination": "https://tracktor.vercel.app/:path*"
+      "destination": "https://tracktor-goal-dashboard.vercel.app/"
     }
   ]
 }
