@@ -12,6 +12,7 @@ let currentStatusIndex = 0;
 
 export async function initStatus() {
   const statusTextElement = document.getElementById("status-typed");
+  const statusSection = document.getElementById("status");
 
   if (!statusTextElement) {
     console.error("status-typed element not found");
@@ -19,9 +20,10 @@ export async function initStatus() {
   }
 
   const typeStatus = async (text) => {
-    statusTextElement.textContent = "";
+    let currentText = "";
     for (const char of text) {
-      statusTextElement.textContent += char;
+      currentText += char;
+      statusTextElement.textContent = currentText;
       await new Promise((resolve) => setTimeout(resolve, 75));
     }
   };
@@ -29,7 +31,17 @@ export async function initStatus() {
   const cycleStatuses = async () => {
     while (true) {
       const currentStatus = statuses[currentStatusIndex];
+      
+      if (statusSection) {
+        statusSection.style.pointerEvents = "none";
+      }
+      
       await typeStatus(currentStatus);
+      
+      if (statusSection) {
+        statusSection.style.pointerEvents = "auto";
+      }
+      
       await new Promise((resolve) => setTimeout(resolve, 3000));
       currentStatusIndex = (currentStatusIndex + 1) % statuses.length;
     }
