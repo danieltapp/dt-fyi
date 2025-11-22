@@ -55,6 +55,21 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  position: relative;
+}
+
+main::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: calc(100% - 280px);
+  top: 280px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 100' preserveAspectRatio='none'%3E%3Cpolyline points='0,0 10,5 0,10 10,15 0,20 10,25 0,30 10,35 0,40 10,45 0,50 10,55 0,60 10,65 0,70 10,75 0,80 10,85 0,90 10,95 0,100' stroke='%23000' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-size: 20px auto;
+  z-index: 0;
 }
 
 /* Header Section */
@@ -144,6 +159,8 @@ h1 {
   padding: 2rem;
   background: #FFF;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
 .profile-image {
@@ -187,6 +204,8 @@ h1 {
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
   max-width: 700px;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 #tracktor p {
@@ -206,6 +225,36 @@ h1 {
 
 #tracktor a:hover {
   background: #ffff00;
+}
+
+#status {
+  text-align: center;
+  border: var(--border-width) solid var(--border-color);
+  padding: 2rem;
+  background: #FFF;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+#status-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  color: #000;
+}
+
+#status-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #000;
+  margin: 0;
+}
+
+#status-text .blinking-cursor {
+  margin-left: 4px;
 }
 
 /* Loading Indicator Animation */
@@ -260,19 +309,25 @@ h1 {
   }
 
   #intro,
-  #tracktor {
+  #tracktor,
+  #status {
     padding: 1.5rem;
     box-shadow: 6px 6px 0 #000;
   }
 
   .profile-image {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
 
   #intro p,
-  #tracktor p {
+  #tracktor p,
+  #status-text {
     font-size: 1rem;
+  }
+
+  #status-title {
+    font-size: 1.1rem;
   }
 }
 
@@ -299,18 +354,25 @@ h1 {
   }
 
   #intro,
-  #tracktor {
+  #tracktor,
+  #status {
     padding: 1rem;
     box-shadow: 4px 4px 0 #000;
   }
 
   .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
   }
 
   #intro p,
-  #tracktor p {
+  #tracktor p,
+  #status-text {
     font-size: 0.95rem;
+  }
+
+  #status-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 }
