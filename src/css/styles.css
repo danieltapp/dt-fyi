@@ -112,6 +112,146 @@ main {
   }
 }
 
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: var(--border-width) solid var(--border-color);
+  background: #FFF;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Fira Code', monospace;
+  z-index: 100;
+}
+
+#dark-mode-toggle:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+  background: #f5f5f5;
+}
+
+#dark-mode-toggle:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+#dark-mode-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-dark { display: none; }
+
+/* Dark Mode */
+html.dark {
+  --primary: #7dd3fc;
+  --secondary: #1a1a2e;
+  --border-color: #7dd3fc;
+}
+
+html.dark body {
+  background-color: #0a0a1a;
+  color: #7dd3fc;
+}
+
+html.dark #dark-mode-toggle {
+  background: #1a1a2e;
+  color: #7dd3fc;
+  border-color: #7dd3fc;
+  box-shadow: 4px 4px 0 rgba(125, 211, 252, 0.2);
+}
+
+html.dark #dark-mode-toggle:hover {
+  background: #162032;
+  box-shadow: 8px 8px 0 rgba(125, 211, 252, 0.2);
+}
+
+html.dark #dark-mode-toggle:active {
+  box-shadow: 2px 2px 0 rgba(125, 211, 252, 0.2);
+}
+
+html.dark .icon-light { display: none; }
+html.dark .icon-dark { display: block; }
+
+html.dark #intro {
+  background: #1a1a2e;
+  border-color: #7dd3fc;
+  box-shadow: 8px 8px 0 rgba(125, 211, 252, 0.15);
+}
+
+html.dark #social-links a {
+  background: #1a1a2e;
+  color: #7dd3fc;
+  border-color: #7dd3fc;
+  box-shadow: 4px 4px 0 rgba(125, 211, 252, 0.2);
+}
+
+html.dark #social-links a:hover {
+  background: #162032;
+  box-shadow: 8px 8px 0 rgba(125, 211, 252, 0.2);
+}
+
+html.dark #social-links a:active {
+  box-shadow: 2px 2px 0 rgba(125, 211, 252, 0.2);
+}
+
+html.dark .tab {
+  color: #7dd3fc;
+}
+
+html.dark .tab:hover {
+  background: #162032;
+}
+
+html.dark .tab.active {
+  border-bottom-color: #7dd3fc;
+}
+
+html.dark #intro p,
+html.dark .tab-panel p {
+  color: #7dd3fc;
+}
+
+html.dark #intro a,
+html.dark .tab-panel a {
+  color: #7dd3fc;
+  border-bottom-color: #7dd3fc;
+}
+
+html.dark #intro a:hover,
+html.dark .tab-panel a:hover {
+  background: #162032;
+}
+
+html.dark .language-row {
+  border-bottom-color: #2a2a4a;
+}
+
+html.dark .language-icon {
+  background: #1a1a2e;
+  border-color: #7dd3fc;
+}
+
+html.dark .language-percentage {
+  color: #93c5fd;
+}
+
+html.dark .footnote {
+  color: #93c5fd;
+}
+
+html.dark #social-links a[title="Letterboxd"] svg ellipse {
+  fill: #1a1a2e;
+}
+
 /* Social Links */
 #social-links {
   display: flex;
