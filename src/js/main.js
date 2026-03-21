@@ -1,9 +1,12 @@
 import { initHeaderAnimation } from "./header.js";
-import { initTracktor } from "./tracktor.js";
+import { initTracktor, initCodeTab } from "./tracktor.js";
 import { initStatus } from "./status.js";
+import { initTabs } from "./tabs.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  initHeaderAnimation("Daniel Tapp");
+  initHeaderAnimation("whoami");
+  initTabs();
   initTracktor();
+  initCodeTab();
   initStatus();
 });
