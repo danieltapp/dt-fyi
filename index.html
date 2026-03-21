@@ -10,9 +10,17 @@
   <body>
     <main>
       <header id="header">
-        <h1>
-          <span id="typed-text"></span><span class="blinking-cursor">_</span>
-        </h1>
+        <div class="terminal">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="terminal-prompt">$</span> <span id="typed-text"></span><span class="blinking-cursor">_</span></div>
+            <div class="terminal-line terminal-output">daniel tapp</div>
+          </div>
+        </div>
       </header>
 
       <footer id="social-links">
@@ -104,45 +112,61 @@
         </a>
       </footer>
 
-      <section id="status">
-        <h2 id="status-title">these days I'm...</h2>
-        <p id="status-text">
-          <span id="status-typed"></span><span class="blinking-cursor">_</span>
-        </p>
-      </section>
-
       <section id="intro">
         <img
           src="static/assets/profile_picture.jpeg"
           alt="Daniel Tapp"
           class="profile-image"
         />
-        <p>
-          Howdy! I'm a seasoned software engineer with a decade of experience
-          helping solve problems by building software for property managers,
-          educators, medical providers, and now working in fintech alongside
-          quantitative engineers. By night, I'm a family man who occasionally
-          builds cool things in the JavaScript ecosystem. I'm also an
-          <a
-            href="https://bsky.app/profile/danieltapp.bsky.social"
-            target="_blank"
-            rel="noopener noreferrer"
-            >amateur poster</a
-          >
-          and a
-          <a
-            href="https://letterboxd.com/danieltapp"
-            target="_blank"
-            rel="noopener noreferrer"
-            >film enjoyer</a
-          >.
-        </p>
-      </section>
 
-      <section id="tracktor">
-        <p id="tracktor-text">
-          <span id="loading-indicator">🤔</span>
-        </p>
+        <nav class="tabs">
+          <button class="tab active" data-tab="about">README</button>
+          <button class="tab" data-tab="code">Code</button>
+          <button class="tab" data-tab="tracktor">Tracktor</button>
+        </nav>
+
+        <div class="tab-content">
+          <div id="tab-about" class="tab-panel active">
+            <p>
+              Howdy! I'm a seasoned engineering lead with a decade of experience
+              helping solve problems by building software for property managers,
+              educators, medical providers, and now working in fintech alongside
+              quantitative engineers. By night, I'm a family man who occasionally
+              builds nerdy side projects. I'm also an
+              <a
+                href="https://bsky.app/profile/danieltapp.bsky.social"
+                target="_blank"
+                rel="noopener noreferrer"
+                >amateur poster</a
+              >
+              and a
+              <a
+                href="https://letterboxd.com/danieltapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                >film enjoyer</a
+              >.
+            </p>
+            <p id="status-text">
+              These days I'm <span id="status-typed"></span><span class="blinking-cursor">_</span>
+            </p>
+            <p class="footnote">
+              Built with HTML/CSS/JS. Sometimes the classics just hit different.
+            </p>
+          </div>
+
+          <div id="tab-code" class="tab-panel">
+            <div id="code-content">
+              <span id="code-loading-indicator">🤔</span>
+            </div>
+          </div>
+
+          <div id="tab-tracktor" class="tab-panel">
+            <p id="tracktor-text">
+              <span id="loading-indicator">🤔</span>
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
