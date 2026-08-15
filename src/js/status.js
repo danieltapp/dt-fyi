@@ -1,8 +1,8 @@
 const statuses = [
-  "obsessing over my run data in Strava",
-  "reading Shea Serrano's excellent new book, Expensive Basketball",
+  "rehabbing my bad back",
+  "reading Danny McBride's excellent new book, Thrilling Tales of Modern Men",
   "dodging the black hole of merge conflicts",
-  "training to run the Peachtree Road Race",
+  "training to run a few races during the Walt Disney World Marathon Weekend",
   "messing around with DADF#AD tuning on my guitar",
   "trying to get through my watchlist on letterboxd",
   "working on some neat automations to help E2E test my stuff",
